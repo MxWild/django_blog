@@ -34,3 +34,8 @@ edit blog/models.py
 `python manage.py makemigrations`
 `python manage.py migrate`
 
+### create superuser
+`python manage.py createsuperuser`
+
+### edit blog/admin.py
+
