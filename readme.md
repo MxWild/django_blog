@@ -39,3 +39,13 @@ edit blog/models.py
 
 ### edit blog/admin.py
 
+## Create views
+
+### edit blog/views.py
+
+### edit urls.py
+
+### add templates dir to settings.py
+
+### add static files (css, js, etc)
+
