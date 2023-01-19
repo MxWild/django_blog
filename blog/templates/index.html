@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <div class="w3-content">
+
+        <div class="w3-container">
+            <div>
+                {% lorem %}
+            </div>
+
+            <br>
+
+            <div class="w3-card-4" style="width: 50%;">
+                {% for post in post_list %}
+                    <header class="w3-container w3-green">
+                        <p>{{ post.title }}</p>
+                    </header>
+                    <div class="w3-container">
+                        <p>{{ post.content|slice:200 }}</p>
+                        <p><a href="{{ post.slug }}">Read more &rAarr;</a></p>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock content %}

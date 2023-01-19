@@ -22,6 +22,15 @@
 
 add app 'blog' to config/settings.py into INSTALLED_APPS section
 
+### install python-dotenv
+`pip install python-dotenv`
+
+Create .env file from .env_example and copy values SECRET_KEY from settings.py to .env
+
+WARNING 
+Don't add .env file to git
+
+
 ## Database init
 
 ### first migrate

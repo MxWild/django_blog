@@ -1,6 +1,6 @@
 from django.views import generic
 
-from blog.models import Post
+from .models import Post
 
 
 class PostList(generic.ListView):
