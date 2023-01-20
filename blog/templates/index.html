@@ -10,19 +10,19 @@
                 {% lorem %}
             </div>
 
-            <br>
-
-            <div class="w3-card-4" style="width: 50%;">
-                {% for post in post_list %}
-                    <header class="w3-container w3-green">
-                        <p>{{ post.title }}</p>
-                    </header>
-                    <div class="w3-container">
-                        <p>{{ post.content|slice:200 }}</p>
-                        <p><a href="{{ post.slug }}">Read more &rAarr;</a></p>
+            {% for post in post_list %}
+                <div class="w3-container w3-padding-16">
+                    <div class="w3-card-4" style="width: 50%;">
+                        <header class="w3-container w3-green">
+                            <p>{{ post.title }}</p>
+                        </header>
+                        <div class="w3-container">
+                            <p>{{ post.content|slice:200 }}</p>
+                            <p><a class="w3-button w3-blue" href="{{ post.slug }}">Read more &rAarr;</a></p>
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
 
         </div>
 
