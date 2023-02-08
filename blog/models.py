@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms import ModelForm
 from django.utils.text import slugify
 
 from blog.constants import STATUS
@@ -19,8 +20,15 @@ class Post(models.Model):
         ordering = ['-date_created']
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        if not self.slug:
+            self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
+
+
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'status']

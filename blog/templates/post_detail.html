@@ -2,5 +2,11 @@
 
 
 {% block content %}
-    {% lorem %}
+    <div class="w3-content">
+        <div class="w3-row">
+            <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+            <p>{{ post.author }} | {{ post.date_created }}</p>
+            <p>{{ object.content | safe }}</p>
+        </div>
+    </div>
 {% endblock content %}
