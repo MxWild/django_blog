@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="w3-content">
+        <h2>Update post</h2>
+        <form method="post">
+            {% csrf_token %}
+            <p>{{ form.title }}</p>
+            <p>{{ form.content }}</p>
+            <p>{{ form.status }}</p>
+            <input class="w3-btn w3-blue w3-hover-gray" type="submit" value="Update">
+        </form>
+    </div>
+{% endblock content %}

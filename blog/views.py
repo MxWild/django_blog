@@ -29,11 +29,20 @@ def add_post(request):
     return redirect('/')
 
 
-def delete_post(slug):
+def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post.delete()
     return redirect('/')
 
 
-def edit_post(request):
-    pass
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+    else:
+        form = PostForm(instance=post)
+        return render(request, 'edit.html', {'form': form})
