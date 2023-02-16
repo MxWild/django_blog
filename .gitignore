@@ -1,5 +1,5 @@
 .idea/
 /venv/
 /db.sqlite3
-/blog/migrations/0*.py
+/blog/migrations/*.py
 /.env
