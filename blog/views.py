@@ -1,4 +1,3 @@
-from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 
