@@ -17,13 +17,27 @@ class Status(models.Model):
         return self.title
 
 
+class Tag(models.Model):
+    title = models.CharField(max_length=15, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tags')
+
+    class Meta:
+        db_table = 'tag'
+        verbose_name = 'tag'
+        verbose_name_plural = 'tags'
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
+
+
 class Post(models.Model):
     title = models.CharField(max_length=300, unique=True)
     slug = models.SlugField(max_length=300, unique=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     content = models.TextField()
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
-
+    tags = models.ManyToManyField(Tag)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 

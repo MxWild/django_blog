@@ -2,13 +2,20 @@
 
 
 {% block content %}
-    <div class="w3-content">
-        <div class="w3-row">
-            <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-            <p>{{ post.author }} | {{ post.date_created }}</p>
-            <p>{{ object.content | safe }}</p>
+    <!-- Grid -->
+    <div class="w3-row">
+        <div class="w3-col l12 s12">
+            <div class="w3-card-4 w3-margin w3-white w3-padding-16">
+                <div class="w3-content">
+                    <div class="w3-row">
+                        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+                        <p>{{ post.author }} | {{ post.date_created }}</p>
+                        <p>{{ object.content | safe }}</p>
+                    </div>
+                    <a class="w3-button w3-red" href="delete/">Delete</a>
+                    <a class="w3-button w3-green" href="edit/">Edit</a>
+                </div>
+            </div>
         </div>
-        <a class="w3-button w3-red" href="delete/">Delete</a>
-        <a class="w3-button w3-green" href="edit/">Edit</a>
     </div>
 {% endblock content %}
