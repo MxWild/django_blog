@@ -5,7 +5,6 @@ from .models import Post, PostForm, Tag
 
 
 class PostList(generic.ListView):
-    # queryset = Post.objects.filter(status=2).order_by('date_created')
     model = Post
     template_name = 'index.html'
 

@@ -23,7 +23,7 @@
                         <div class="w3-row">
                             <div class="w3-col m8 s12">
                                 <p>
-                                    <a class="w3-button w3-padding-large w3-white w3-border" href="{{ post.slug }}">
+                                    <a class="w3-button w3-padding-large w3-white w3-border" href="{%  url 'blog:post_detail' post.slug %}">
                                         <b>READ MORE »</b></a>
                                     </button>
                                 </p>
@@ -95,7 +95,7 @@
                         {% for tag in tags %}
                             <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">{{ tag }}</span>
                         {% endfor %}
-                        <span class="w3-tag w3-black w3-margin-bottom">Travel</span>
+{#                        <span class="w3-tag w3-black w3-margin-bottom">Travel</span>#}
                         <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span>
                         <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
                         <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span>
