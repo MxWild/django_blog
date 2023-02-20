@@ -27,13 +27,13 @@ def add_post(request):
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
-    return redirect('/')
+    return redirect('blog:index')
 
 
 def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post.delete()
-    return redirect('/')
+    return redirect('blog:index')
 
 
 def edit_post(request, slug):

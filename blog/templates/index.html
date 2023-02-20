@@ -118,8 +118,10 @@
 
         <!-- END GRID -->
     </div>
+
     <br>
 
+    {% if user.is_authenticated %}
     <div class="w3-row">
         <div class="w3-col s12 m12 l12">
             <div class="w3-card w3-margin w3-margin-top">
@@ -139,5 +141,6 @@
         </div>
     </div>
     <br>
+    {% endif %}
 
 {% endblock content %}
