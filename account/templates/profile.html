@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+{#        {{ user_form }}#}
+        {{ avatar_form.as_p }}
+        <input class="w3-btn w3-blue w3-hover-gray w3-margin-bottom" type="submit" value="Update Profile">
+    </form>
+
+{% endblock content %}
