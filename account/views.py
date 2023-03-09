@@ -1,10 +1,11 @@
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from account.forms import ProfileForm
+from account.models import Profile
 
 
 def sign_up_account(request):
@@ -59,13 +60,13 @@ def log_out_account(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
-        avatar_form = ProfileForm(request.POST, instance=request.user)
-        if avatar_form.is_valid():
-            avatar_form.save()
+        current_profile = get_object_or_404(Profile, user_id=request.user.id)
+        profile_form = ProfileForm(request.POST, instance=current_profile)
+        if profile_form.is_valid():
+            profile_form.save()
             return redirect('blog:index')
     else:
-        user = request.user
+        current_profile = get_object_or_404(Profile, user_id=request.user.id)
         return render(request, 'profile.html', {
-            # 'user_form': UserCreationForm(inspect=user),
-            'avatar_form': ProfileForm(instance=user)
+            'profile_form': ProfileForm(instance=current_profile)
         })

@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!-- Grid -->
+    <div class="w3-row">
+        <div class="w3-col l12 s12">
+            <div class="w3-card-4 w3-margin w3-white w3-padding-16">
+                <div class="w3-content">
+                    <div class="w3-row">
 
-    <form method="post">
-        {% csrf_token %}
-{#        {{ user_form }}#}
-        {{ avatar_form.as_p }}
-        <input class="w3-btn w3-blue w3-hover-gray w3-margin-bottom" type="submit" value="Update Profile">
-    </form>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ profile_form.as_p }}
+                            <input class="w3-btn w3-blue w3-hover-gray w3-margin-bottom" type="submit"
+                                   value="Update Profile">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock content %}
